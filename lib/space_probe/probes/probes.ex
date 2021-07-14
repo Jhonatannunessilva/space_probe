@@ -21,4 +21,8 @@ defmodule SpaceProbe.Probes do
   def create_probe(params \\ %{}) do
     params |> Probe.changeset() |> Repo.insert()
   end
+
+  def create_probe!(params \\ %{}) do
+    params |> Probe.changeset() |> Repo.insert!()
+  end
 end

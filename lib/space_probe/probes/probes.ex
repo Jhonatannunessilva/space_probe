@@ -22,11 +22,13 @@ defmodule SpaceProbe.Probes do
 
   defp rotate(%{face: "D"} = changes, "TL"), do: %{changes | face: "R"}
   defp rotate(%{face: "D"} = changes, "TR"), do: %{changes | face: "L"}
+  defp rotate(changes, _direction), do: changes
 
   defp move(%{face: "R", x: x} = changes), do: %{changes | x: x + 1}
   defp move(%{face: "U", y: y} = changes), do: %{changes | y: y + 1}
   defp move(%{face: "L", x: x} = changes), do: %{changes | x: x - 1}
   defp move(%{face: "D", y: y} = changes), do: %{changes | y: y - 1}
+  defp move(changes), do: changes
 
   def reset_position(probe) do
     update_probe(%{x: 0, y: 0, face: "R"}, probe)

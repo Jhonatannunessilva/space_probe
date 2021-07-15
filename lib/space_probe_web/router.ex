@@ -7,6 +7,10 @@ defmodule SpaceProbeWeb.Router do
 
   scope "/api", SpaceProbeWeb do
     pipe_through :api
+
+    get "/probes", ProbeController, :show
+    post "/probes", ProbeController, :execute_instructions
+    post "/probes/reset-position", ProbeController, :reset_position
   end
 
   # Enables LiveDashboard only for development

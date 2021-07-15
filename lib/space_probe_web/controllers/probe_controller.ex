@@ -3,6 +3,8 @@ defmodule SpaceProbeWeb.ProbeController do
 
   alias SpaceProbe.Probes
 
+  action_fallback SpaceProbeWeb.FallbackController
+
   def show(conn, _params) do
     with {:ok, probe} <- Probes.get_probe() do
       conn

@@ -44,7 +44,7 @@ defmodule SpaceProbe.Probes do
         {:ok, probe}
 
       _ ->
-        {:error, "Probe not found!"}
+        {:error, :not_found}
     end
   end
 
